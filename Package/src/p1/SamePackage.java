@@ -4,7 +4,7 @@ import p1.Protection;
 
 public class SamePackage
 {
-    SamePackage()
+    public SamePackage()
     {
         Protection p = new Protection();
         System.out.println("Same package constructor!");
