@@ -2,7 +2,8 @@ package p1;
 
 public class Derived extends p1.Protection
 {
-    public Derived() {
+    public Derived()
+    {
         System.out.println("Derived class constructor!");
         System.out.println("n = " + n);
 
