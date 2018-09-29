@@ -24,6 +24,7 @@ public class AlertBoxMain extends Application
         window.setTitle("Alert Box");
         Label label = new Label("Click This Button To Open AlertBox!");
         button = new Button("Alert Box");
+        button.setOnAction(e -> AlertBox.Display());
         VBox layout = new VBox(20);
         layout.getChildren().addAll(label, button);
         layout.setAlignment(Pos.CENTER);
