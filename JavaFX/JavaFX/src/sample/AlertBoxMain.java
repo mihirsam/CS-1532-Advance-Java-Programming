@@ -23,6 +23,8 @@ public class AlertBoxMain extends Application
 
     public void start(Stage primaryStage)
     {
+        window = primaryStage;
+
         window.setTitle("Alert Box");
         Label label = new Label("Click This Button To Open AlertBox!");
         button = new Button("Alert Box");
@@ -30,6 +32,15 @@ public class AlertBoxMain extends Application
         button.setOnAction(e -> AlertBox.Display());
           */
 
+        window.setOnCloseRequest(e -> {
+            e.consume();
+            boolean answer = ConfirmBox.Confirm();
+
+            if(answer)
+            {
+                window.close();
+            }
+        });
 
         button.setOnAction(e -> {
             boolean answer = ConfirmBox.Confirm();
