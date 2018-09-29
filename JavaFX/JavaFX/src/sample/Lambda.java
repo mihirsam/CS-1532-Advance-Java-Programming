@@ -23,12 +23,16 @@ public class Lambda extends Application
         button = new Button();
         button.setText("Click Me");
 
+        /*
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 System.out.println("Hello! How are you?");
             }
         });
+        */
+
+        button.setOnAction(e -> System.out.println("Hello There"));
 
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
