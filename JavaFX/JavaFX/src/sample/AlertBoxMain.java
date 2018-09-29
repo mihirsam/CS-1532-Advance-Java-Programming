@@ -7,6 +7,8 @@ import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.scene.Scene;
 
+import java.awt.event.ActionEvent;
+
 
 public class AlertBoxMain extends Application
 {
@@ -24,7 +26,22 @@ public class AlertBoxMain extends Application
         window.setTitle("Alert Box");
         Label label = new Label("Click This Button To Open AlertBox!");
         button = new Button("Alert Box");
+        /*
         button.setOnAction(e -> AlertBox.Display());
+          */
+
+
+        button.setOnAction(e -> {
+            boolean answer = ConfirmBox.Confirm();
+
+            if(answer)
+            {
+                AlertBox.Display();
+            }
+        });
+
+
+
         VBox layout = new VBox(20);
         layout.getChildren().addAll(label, button);
         layout.setAlignment(Pos.CENTER);
