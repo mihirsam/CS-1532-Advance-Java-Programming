@@ -1,15 +1,14 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
-
-public class UserEvent extends Application implements EventHandler<ActionEvent>
+public class Lambda extends Application
 {
     Button button;
 
@@ -18,31 +17,23 @@ public class UserEvent extends Application implements EventHandler<ActionEvent>
         launch(args);
     }
 
-    @Override
-
     public void start(Stage primaryStage)
     {
-        primaryStage.setTitle("Mouse Click");
+        primaryStage.setTitle("Lambda Windows");
         button = new Button();
-        button.setText("Hey Baby");
+        button.setText("Click Me");
 
-        button.setOnAction(this);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Hello! How are you?");
+            }
+        });
 
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
-
-        Scene scene = new Scene(layout, 300, 200);
+        Scene scene = new Scene(layout, 300, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    @Override
-
-    public void handle(ActionEvent event)
-    {
-        if(event.getSource() == button)
-        {
-            System.out.println("Hey Mihir!");
-        }
     }
 }
