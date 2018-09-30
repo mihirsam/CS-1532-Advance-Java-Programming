@@ -20,9 +20,15 @@ public class ChoiceBoxMain extends Application
     {
         window = primaryStage;
         window.setTitle("Choice Box");
+
+        Label selection = new Label();
+
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
         choiceBox.getItems().addAll("Apple", "Ball", "Cat");
         choiceBox.getSelectionModel().select(0);
+        choiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
+            selection.setText("You have selected "+newValue);
+        });
 
         Label label = new Label();
         Button order = new Button("Order");
@@ -32,7 +38,7 @@ public class ChoiceBoxMain extends Application
 
         VBox layout = new VBox(20);
         layout.setAlignment(Pos.CENTER);
-        layout.getChildren().addAll(choiceBox, order, label);
+        layout.getChildren().addAll(choiceBox, order, selection, label);
         layout.setPadding(new Insets(10, 10, 10, 10));
 
         Scene scene = new Scene(layout, 200, 300);
